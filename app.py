@@ -21,24 +21,25 @@ st.markdown("""
 
 .title{
     color:#082a7a;
-    font-size:42px;
+    font-size:32px;
     font-weight:700;
-    margin-bottom:10px;
+    margin-bottom:6px;
     line-height:1.2;
 }
 
 .subtitle{
-    color:#555;
-    font-size:20px;
+    color:#666;
+    font-size:14px;
+    line-height:1.4;
 }
 
 .follow-title{
     text-align:center;
     color:#082a7a;
-    font-size:32px;
+    font-size:24px;
     font-weight:700;
-    margin-top:20px;
-    margin-bottom:30px;
+    margin-top:10px;
+    margin-bottom:20px;
 }
 
 .footer{
@@ -73,7 +74,7 @@ iframe{
 </style>
 """, unsafe_allow_html=True)
 
-st.image("logo.png", width=220)
+st.image("logo.png", width=140)
 
 st.markdown(
     """
@@ -81,10 +82,9 @@ st.markdown(
     Dronector Event Registration
     </div>
 
-    <div class='subtitle'>
-    Register below and stay connected with drone training,
-    drone services and future events.
-    </div>
+  <div class='subtitle'>
+Register below to stay connected with Dronector.
+</div>
     """,
     unsafe_allow_html=True
 )
@@ -94,13 +94,8 @@ col1, col2, col3 = st.columns([1,4,1])
 
 components.iframe(
     "https://forms.gle/yxLAxgPCLw9zkhMw5",
-    height=550,
+    height=600,
     scrolling=True
-)
-
-st.markdown(
-    "<div class='follow-title'>Follow Dronector</div>",
-    unsafe_allow_html=True
 )
 
 st.markdown("""
@@ -109,14 +104,14 @@ st.markdown("""
 .social-grid{
     display:flex;
     justify-content:center;
-    gap:15px;
+    gap:8px;
     flex-wrap:wrap;
-    margin-top:20px;
+    margin-top:5px;
 }
 
-            .social-card{
-    width:120px;
-    height:120px;
+.social-card{
+    width:90px;
+    height:90px;
     background:white;
     border-radius:20px;
     padding:15px;
@@ -136,9 +131,30 @@ st.markdown("""
 }
 
 .social-card img{
-    width:70px;
-    height:70px;
+    width:50px;
+    height:50px;
     object-fit:contain;
+}
+
+            @media (max-width: 768px){
+
+    .social-grid{
+        flex-wrap:nowrap;
+        justify-content:center;
+        gap:6px;
+    }
+
+    .social-card{
+        width:65px;
+        height:65px;
+        padding:8px;
+    }
+
+    .social-card img{
+        width:38px;
+        height:38px;
+    }
+
 }
 
 </style>
@@ -150,21 +166,14 @@ def img_to_base64(path):
     with open(path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-facebook = img_to_base64("facebook.png")
 instagram = img_to_base64("instagram.png")
 tiktok = img_to_base64("tiktok.png")
-youtube = img_to_base64("youtube.png")
 xlogo = img_to_base64("x.png")
 website = img_to_base64("website.png")
 
 st.markdown(f"""
 <div class="social-grid">
 
-<a class="social-card"
-href="https://www.facebook.com/dronector.academy"
-target="_blank">
-<img src="data:image/png;base64,{facebook}">
-</a>
 
 <a class="social-card"
 href="https://www.instagram.com/dronector.academy/"
@@ -178,11 +187,6 @@ target="_blank">
 <img src="data:image/png;base64,{tiktok}">
 </a>
 
-<a class="social-card"
-href="https://youtube.com/@dronector.academy?si=H7bpOQmoU0nhRtsJ"
-target="_blank">
-<img src="data:image/png;base64,{youtube}">
-</a>
 
 <a class="social-card"
 href="https://x.com/dronector_ac?s=11"
@@ -197,6 +201,67 @@ target="_blank">
 </a>
 
 </div>
+""", unsafe_allow_html=True)
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+st.markdown(
+    """
+    <div style="
+        text-align:center;
+        color:#082a7a;
+        font-size:22px;
+        font-weight:700;
+        margin-top:20px;
+        margin-bottom:20px;
+    ">
+        Download Our Brochure
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown("""
+<style>
+
+.brochure-button{
+    text-align:center;
+    margin-top:20px;
+}
+
+.brochure-button a{
+    display:inline-block;
+    background:#082a7a;
+    color:white !important;
+    text-decoration:none !important;
+    padding:18px 40px;
+    border-radius:18px;
+    font-size:20px;
+    font-weight:600;
+    box-shadow:0 6px 18px rgba(8,42,122,0.25);
+}
+
+.brochure-button a:hover{
+    background:#0b3aa5;
+}
+
+</style>
+
+<div class="brochure-button">
+    <a href="https://www.canva.com/design/DAF-o8D_h80/aV1hOl-sl1U1vcsLpnwHEA/view?utm_content=DAF-o8D_h80&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd43734cfaa"
+       target="_blank">
+       📄 View Dronector Brochure
+    </a>
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<a class="brochure-card"
+href="https://www.canva.com/design/DAF-o8D_h80/aV1hOl-sl1U1vcsLpnwHEA/view?utm_content=DAF-o8D_h80&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd43734cfaa"
+target="_blank">
+
+
+</a>
 """, unsafe_allow_html=True)
 
 st.markdown(
