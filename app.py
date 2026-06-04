@@ -21,16 +21,16 @@ st.markdown("""
 
 .title{
     color:#082a7a;
-    font-size:32px;
+    font-size:30px;
     font-weight:700;
-    margin-bottom:6px;
-    line-height:1.2;
-}
-
-.subtitle{
-    color:#666;
-    font-size:14px;
-    line-height:1.4;
+    margin-bottom:10px;
+    line-height:1.6;
+    text-align:center;
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-left:10px;
+    padding-right:10px;
 }
 
 .follow-title{
@@ -55,15 +55,11 @@ iframe{
 
 @media (max-width: 768px){
 
-    .title{
-        font-size:28px;
-        text-align:center;
-    }
-
-    .subtitle{
-        font-size:16px;
-        text-align:center;
-    }
+.title{
+    font-size:24px;
+    text-align:center;
+    line-height:1.4;
+}
 
     .follow-title{
         font-size:26px;
@@ -74,21 +70,36 @@ iframe{
 </style>
 """, unsafe_allow_html=True)
 
-st.image("logo.png", width=140)
-
 st.markdown(
     """
-    <div class='title'>
-    Dronector Event Registration
-    </div>
+<div style="text-align:center;">
 
-  <div class='subtitle'>
-Register below to stay connected with Dronector.
+<div class='title'>
+Welcome to the Freedom 250 Drone Experience
 </div>
+
+<div style="
+    color:#666;
+    font-size:14px;
+    line-height:1.5;
+    max-width:800px;
+    margin:auto;
+    padding-left:10px;
+    padding-right:10px;
+">
+Explore drone services, professional training and the future of aerial innovation.
+</div>
+
+</div>
+""",
+    unsafe_allow_html=True
+)
+st.markdown(
+    """
+    <div style="height:20px;"></div>
     """,
     unsafe_allow_html=True
 )
-st.markdown("<br>", unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns([1,4,1])
 
@@ -166,10 +177,49 @@ def img_to_base64(path):
     with open(path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
+logo = img_to_base64("logo.png")
 instagram = img_to_base64("instagram.png")
 tiktok = img_to_base64("tiktok.png")
 xlogo = img_to_base64("x.png")
 website = img_to_base64("website.png")
+
+st.markdown(f"""
+<style>
+
+.stApp::before {{
+    content:"";
+    position:fixed;
+    top:50%;
+    left:50%;
+    width:550px;
+    height:550px;
+    transform:translate(-50%, -50%);
+    background:url("data:image/png;base64,{logo}") no-repeat center;
+    background-size:contain;
+    opacity:0.10;
+    pointer-events:none;
+    z-index:0;
+}}
+
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown(
+    """
+    <div style="
+        text-align:center;
+        color:#082a7a;
+        font-size:24px;
+        font-weight:700;
+        margin-top:15px;
+        margin-bottom:15px;
+        letter-spacing:1px;
+    ">
+        FOLLOW US
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 st.markdown(f"""
 <div class="social-grid">
@@ -224,45 +274,37 @@ st.markdown(
 st.markdown("""
 <style>
 
-.brochure-button{
-    text-align:center;
-    margin-top:20px;
-}
-
-.brochure-button a{
-    display:inline-block;
-    background:#082a7a;
-    color:white !important;
-    text-decoration:none !important;
-    padding:18px 40px;
-    border-radius:18px;
-    font-size:20px;
+div[data-testid="stDownloadButton"] > button {
+    background-color:#082a7a;
+    color:white;
+    border:none;
+    border-radius:12px;
+    padding:12px 20px;
+    font-size:16px;
     font-weight:600;
-    box-shadow:0 6px 18px rgba(8,42,122,0.25);
+    width:100%;
 }
 
-.brochure-button a:hover{
-    background:#0b3aa5;
+div[data-testid="stDownloadButton"] > button:hover {
+    background-color:#0b3aa5;
+    color:white;
 }
 
 </style>
-
-<div class="brochure-button">
-    <a href="https://www.canva.com/design/DAF-o8D_h80/aV1hOl-sl1U1vcsLpnwHEA/view?utm_content=DAF-o8D_h80&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd43734cfaa"
-       target="_blank">
-       📄 View Dronector Brochure
-    </a>
-</div>
 """, unsafe_allow_html=True)
 
-st.markdown("""
-<a class="brochure-card"
-href="https://www.canva.com/design/DAF-o8D_h80/aV1hOl-sl1U1vcsLpnwHEA/view?utm_content=DAF-o8D_h80&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd43734cfaa"
-target="_blank">
+with open("brochure.pdf", "rb") as pdf_file:
+    PDFbyte = pdf_file.read()
+
+st.download_button(
+    label="📄 Download Freedom 250 Brochure",
+    data=PDFbyte,
+    file_name="Freedom250_Brochure.pdf",
+    mime="application/pdf",
+    use_container_width=True
+)
 
 
-</a>
-""", unsafe_allow_html=True)
 
 st.markdown(
     """
