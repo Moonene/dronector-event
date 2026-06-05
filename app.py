@@ -2,8 +2,8 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 st.set_page_config(
-    page_title="Dronector Event",
-    page_icon="🚁",
+    page_title="Freedom 250 Event",
+    page_icon="✈️",
     layout="wide"
 )
 
@@ -297,7 +297,7 @@ with open("brochure.pdf", "rb") as pdf_file:
     PDFbyte = pdf_file.read()
 
 st.download_button(
-    label="📄 Download Freedom 250 Brochure",
+    label="📄 Download Brochure",
     data=PDFbyte,
     file_name="Freedom250_Brochure.pdf",
     mime="application/pdf",
