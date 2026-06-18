@@ -104,7 +104,7 @@ st.markdown(
 col1, col2, col3 = st.columns([1,4,1])
 
 components.iframe(
-    "https://forms.gle/yxLAxgPCLw9zkhMw5",
+    "https://docs.google.com/forms/d/e/1FAIpQLSfy2whqDYdGJhHgxragukTolS873h7wA1QaekyxnWlUcu_kkQ/viewform?embedded=true",
     height=600,
     scrolling=True
 )
